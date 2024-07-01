@@ -18,17 +18,19 @@
 <body>
     <div>
         <h1>Test your knowledge!</h1>
-        <p>There's 20 questions in total.</p>
-        <p>Each question is worth 10 points.</p>
-        <p>Once you press the answer, you will automatically go to the next question. Think before you choose!</p>
-        <p>Choose your username.</p>
-        <p>After all 20 questions are answered, your score will be displayed to you.</p>
+        <div id="rules">
+            <p>There's 20 questions in total.</p>
+            <p>Each question is worth 10 points.</p>
+            <p>Once you press the answer, you will automatically go to the next question. Think before you choose!</p>
+            <p>Choose your username.</p>
+            <p>After all 20 questions are answered, your score will be displayed to you.</p>
+        </div>
     </div>
-    <div>
+    <div id="name">
         <input type="username" name="username" id="username" placeholder="Username...">
     </div>
-    <div>
-        <a href="game.html" class="play-btn">Click to play</a>
+    <div class="play">
+        <a href="game.html" class="btn">Click to play</a>
     </div>
     <script src="assets/js/script.js"></script>
 </body>

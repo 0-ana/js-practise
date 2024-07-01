@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+/* Body */
+body {
+    background-color: black;
+    color: oldlace;
+    font-family: 'Playwrite Deutschland Grundschrift', sans-serif;
+}
+
+/* Home Page */
+h1 {
+    text-align: center;
+}
+
+#rules {
+    background-color:  oldlace;
+    margin: 5px 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+}
+
+p {
+    color: black;
+    text-align: center;
+}
+
+#name {
+    text-align: center;
+}
+
+#username {
+    margin-top: 5px;  
+    height: 30px;  
+    width: 200px;
+    background-color: oldlace;
+}
+
+.play {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    text-decoration: none;
+    color: oldlace;
+}
+
+.btn:hover {
+    text-decoration: underline;
+}
