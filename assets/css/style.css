@@ -41,13 +41,8 @@ p {
     text-align: center;
 }
 
-.btn {
-    text-decoration: none;
+#btn {
     color: oldlace;
-}
-
-.btn:hover {
-    text-decoration: underline;
 }
 
 /* Game page */
@@ -74,11 +69,20 @@ p {
     text-align: center;
 }
 
-.btn {
-    text-decoration: none;
-    color: oldlace;
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px){
+
+    h1, h2{
+        margin-top: 200px; 
+    }
+
+    #rules, #game{
+        margin: 50px 100px;
+    }
+
+    .play{
+        margin-top: 100px;
+    }
+    
 }
 
-.btn:hover {
-    text-decoration: underline;
-}
