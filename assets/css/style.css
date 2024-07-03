@@ -83,6 +83,8 @@ p {
     .play{
         margin-top: 100px;
     }
-    
+    #choices:hover {
+        background-color: wheat;
+    }
 }
 
