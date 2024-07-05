@@ -7,7 +7,7 @@ let allQuestions = [
         option2: '45',
         option3: '50',
         option4: '55',
-        answer: '50',
+        answer: 3,
     },
     {
         question: 'What is "cynophobia"?',
@@ -15,7 +15,7 @@ let allQuestions = [
         option2: 'Fear of cats',
         option3: 'Fear of heights',
         option4: 'Fear of crowds',
-        answer: 'Fear of dogs',
+        answer: 1,
     },
     {
         question: 'What is the name of the World largest ocean?',
@@ -23,7 +23,7 @@ let allQuestions = [
         option2: 'Indian Ocean',
         option3: 'Pacific Ocean',
         option4: 'Arctic Ocean',
-        answer: 'Pacific Ocean',
+        answer: 3,
     },
     {
         question: 'How many colors are there in the rainbow?',
@@ -31,7 +31,7 @@ let allQuestions = [
         option2: 'Six',
         option3: 'Seven',
         option4: 'Eight',
-        answer: 'Seven',
+        answer: 3,
     },
     {
         question: 'Which country is the smallest in the world?',
@@ -39,7 +39,7 @@ let allQuestions = [
         option2: 'Nauru',
         option3: 'Monaco',
         option4: 'Vatican City',
-        answer: 'Vatican City',
+        answer: 4,
     },
     {
         question: 'Area 51 is located in which U S state?',
@@ -47,7 +47,7 @@ let allQuestions = [
         option2: 'Idaho',
         option3: 'Utah',
         option4: 'Nevada',
-        answer: 'Nevada',
+        answer: 4,
     },
     {
         question: 'What country touches the Indian Ocean, the Arabian Sea, and the Bay of Bengal?',
@@ -55,7 +55,7 @@ let allQuestions = [
         option2: 'India',
         option3: 'Sri Lanka',
         option4: 'Maldives',
-        answer: 'India',
+        answer: 2,
     },
     {
         question: 'What country has the most natural lakes?',
@@ -63,7 +63,7 @@ let allQuestions = [
         option2: 'Finland',
         option3: 'Switzerland',
         option4: 'Russia',
-        answer: 'Canada',
+        answer: 1,
     },
     {
         question: 'How many hearts does an octopus have?',
@@ -71,7 +71,7 @@ let allQuestions = [
         option2: 'Three',
         option3: 'Four',
         option4: 'Five',
-        answer: 'Three',
+        answer: 2,
     },
     {
         question: 'How many legs does a spider have?',
@@ -79,7 +79,7 @@ let allQuestions = [
         option2: 'Six',
         option3: 'Eight',
         option4: 'Ten',
-        answer: 'Eight',
+        answer: 3,
     },
     {
         question: 'What is the largest planet in the solar system?',
@@ -87,7 +87,7 @@ let allQuestions = [
         option2: 'Venus',
         option3: 'Jupiter',
         option4: 'Neptune',
-        answer: 'Jupiter',
+        answer: 3,
     },
     {
         question: 'What is the fastest land animal?',
@@ -95,7 +95,7 @@ let allQuestions = [
         option2: 'Pronghorn',
         option3: 'Springbok',
         option4: 'Cheetah',
-        answer: 'Cheetah',
+        answer: 4,
     },
     {
         question: 'Who painted the Mona Lisa?',
@@ -103,7 +103,7 @@ let allQuestions = [
         option2: 'Claude Monet',
         option3: 'Leonardo da Vinci',
         option4: 'Pablo Picasso',
-        answer: 'Leonardo da Vinci',
+        answer: 3,
     },
     {
         question: 'What nut is in the middle of a Ferrero Rocher?',
@@ -111,7 +111,7 @@ let allQuestions = [
         option2: 'Almond',
         option3: 'Walnut',
         option4: 'Peanut',
-        answer: 'Hazelnut',
+        answer: 1,
     },
     {
         question: 'How many rings does olympics logo have?',
@@ -119,7 +119,7 @@ let allQuestions = [
         option2: 'Five',
         option3: 'Six',
         option4: 'Seven',
-        answer: 'Five',
+        answer: 2,
     },
     {
         question: 'How many elements are there in the periodic table?',
@@ -127,7 +127,7 @@ let allQuestions = [
         option2: '108',
         option3: '114',
         option4: '118',
-        answer: '118',
+        answer: 4,
     },
     {
         question: 'Zagreb is the capital city of which country?',
@@ -135,7 +135,7 @@ let allQuestions = [
         option2: 'Bosnia and Herzegovina',
         option3: 'Serbia',
         option4: 'Slovenia',
-        answer: 'Croatia',
+        answer: 1,
     },
     {
         question: 'What year did the Berlin Wall fall?',
@@ -143,7 +143,7 @@ let allQuestions = [
         option2: '1987',
         option3: '1988',
         option4: '1989',
-        answer: '1989',
+        answer: 4,
     },
     {
         question: 'What is the largest organ in the human body?',
@@ -151,7 +151,7 @@ let allQuestions = [
         option2: 'Lungs',
         option3: 'liver',
         option4: 'Heart',
-        answer: 'Skin',
+        answer: 1,
     },
     {
         question: 'In what year did the Titanic sink?',
@@ -159,30 +159,78 @@ let allQuestions = [
         option2: '1913',
         option3: '1914',
         option4: '1915',
-        answer: '1912',
+        answer: 1,
     }
 ];
 
-let questionElement = document.getElementById('question');
-let answerElement = document.getElementsByClassName('answer');
+// Get elements from DOM
+let question = document.getElementById('question');
+let choices = Array.from(document.getElementsByClassName('answer'));
+let progress = document.getElementById('count-number');
 
-let currentQuestion= 0;
+let questionCounter= 0;
 let score = 0;
+let currentQuestion = {};
+let availableQuestions = [];
+let acceptingAnswers = false;
+
+let POINTS = 10;
+let MAX_QUESTIONS = 20;
+
+
+function startGame() {
+    questionCounter = 0;
+    score = 0;
+    availableQuesions = [...questions];
+    displayQuestion();
+};
 
 function displayQuestion() {
-    let question = allQuestions[currentQuestion];
-    questionElement.innerHTML = question.question;
+    if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        return window.location.assign("/end.html");
+      }
+      questionCounter++;
+      const questionIndex = Math.floor(Math.random() * availableQuesions.length);
+      currentQuestion = availableQuesions[questionIndex];
+      question.innerText = currentQuestion.question;
+    
+      choices.forEach(choice => {
+        const number = choice.dataset["number"];
+        choice.innerText = currentQuestion["choice" + number];
+      });
+    
+      availableQuesions.splice(questionIndex, 1);
+      acceptingAnswers = true;
+    };
 
-
-}
-displayQuestion()
+choices.forEach(choice => {
+    choice.addEventListener("click", e => {
+      if (!acceptingAnswers) return;
+  
+      acceptingAnswers = false;
+      const selectedChoice = e.target;
+      const selectedAnswer = selectedChoice.dataset["number"];
+  
+      const classToApply =
+        selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+  
+      selectedChoice.parentElement.classList.add(classToApply);
+  
+      setTimeout(() => {
+        selectedChoice.parentElement.classList.remove(classToApply);
+        getNewQuestion();
+      }, 1000);
+    });
+  });
+  
+  startGame();
 
 function checkAnswer() {
 
 }
 
 function countQuestions() {
-
+    progress.innerText = `${questionCounter} / ${MAX_QUESTIONS}`
 }
 
 function countScore() {
