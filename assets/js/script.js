@@ -1,6 +1,16 @@
+// Get elements from DOM
+const question = document.querySelector('#question');
+const choices = Array.from(document.querySelectorAll('.answer'));
+const progress = document.querySelector('.count-number');
+
+let currentQuestion = {}
+let acceptingAnswers = true;
+let score = 0;
+let questionCounter= 0;
+let availableQuestions = [];
 
 // All available questions
-let allQuestions = [
+let questions = [
     {
         question: 'How long is an Olympic swimming pool (in meters)?',
         option1: '40',
@@ -163,30 +173,20 @@ let allQuestions = [
     }
 ];
 
-// Get elements from DOM
-let question = document.getElementById('question');
-let choices = Array.from(document.getElementsByClassName('answer'));
-let progress = document.getElementById('count-number');
-
-let questionCounter= 0;
-let score = 0;
-let currentQuestion = {};
-let availableQuestions = [];
-let acceptingAnswers = false;
-
-let POINTS = 10;
-let MAX_QUESTIONS = 20;
+const SCORE_POINTS = 10;
+const MAX_QUESTIONS = 20;
 
 
-function startGame() {
+startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuesions = [...questions];
     displayQuestion();
 };
 
-function displayQuestion() {
+displayQuestion = () => {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        //go to the end page
         return window.location.assign("/end.html");
       }
       questionCounter++;
@@ -201,7 +201,7 @@ function displayQuestion() {
     
       availableQuesions.splice(questionIndex, 1);
       acceptingAnswers = true;
-    };
+};
 
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
@@ -218,21 +218,14 @@ choices.forEach(choice => {
   
       setTimeout(() => {
         selectedChoice.parentElement.classList.remove(classToApply);
-        getNewQuestion();
+        displayQuestion();
       }, 1000);
     });
   });
   
   startGame();
 
-function checkAnswer() {
+  checkAnswers = () => {
 
-}
-
-function countQuestions() {
-    progress.innerText = `${questionCounter} / ${MAX_QUESTIONS}`
-}
-
-function countScore() {
-    
-}
+  }
+   

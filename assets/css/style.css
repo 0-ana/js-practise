@@ -51,15 +51,31 @@ p {
     background-color: oldlace;
     height: 80px;
     display: flex;
-    flex-direction: column;
+    border-radius: 8px;
+    
+}
+.question-number {
+    border-right: 2px solid black;
+    width: 20px;
+    margin: 0 auto;
+    display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 100%;
 }
 .answer {
     width: 100%;
-    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.correct {
+    background-color: green;
+}
+.incorrect {
+    background-color: red;
+}
 #count-questions p {
     color: oldlace;
 }
@@ -83,8 +99,17 @@ p {
     .play{
         margin-top: 100px;
     }
-    .choices:hover {
+    .answer:hover {
         background-color: wheat;
     }
+
+    /* Game page */
+.question-number {
+    height: 80px;
+}
+/* Game page */
+.question-number {
+    width: 80px;
 }
 
+}
