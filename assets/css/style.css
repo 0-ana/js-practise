@@ -8,7 +8,7 @@ body {
 }
 
 /* Home Page */
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
 }
 
@@ -20,7 +20,7 @@ h1, h2 {
 
 }
 
-p {
+#rules p {
     color: black;
     text-align: center;
 }
@@ -76,13 +76,28 @@ p {
 .incorrect {
     background-color: red;
 }
-#count-questions p {
+#count-container {
     color: oldlace;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#count-questions {
+    margin-right: 50px;
 }
 
 .home {
     margin-top: 30px;
     text-align: center;
+}
+/* End page */
+#results, #score {
+    color: oldlace;
+    text-align: center;
+}
+#score {
+    margin-bottom: 100px;
 }
 
 /* Media query: tablets and larger (768px and up) */
