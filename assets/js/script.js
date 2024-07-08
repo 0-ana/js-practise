@@ -179,26 +179,28 @@ const SCORE_POINTS = 10;
 const MAX_QUESTIONS = 20;
 
 // Funcion to start game
+// Score and question counter are reset to 0
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuesions = [...questions];
+    availableQuestions = [...questions];
     displayQuestion();
 };
 // Function to display questions and answers
 displayQuestion = () => {
-    if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    // If there are no more questions
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
       //go to the end page
-      return window.location.assign("/end.html");
+      return window.location.assign("end.html");
     }
-    // Question counter
+    // Display to user on witch
     questionCounter++;
     if (progress) {
         progress.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
     }
     // Display question
-    const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-    currentQuestion = availableQuesions[questionIndex];
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
     if (question) {
         question.innerText = currentQuestion.question;
     }
@@ -209,7 +211,7 @@ displayQuestion = () => {
     });
   
     // Remove question from all questons array
-    availableQuesions.splice(questionIndex, 1);
+    availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
   };
 
@@ -222,9 +224,11 @@ choices.forEach(choice => {
       const selectedAnswer = selectedChoice.dataset["number"];
   
       // Applay class to answer to style it
-      const classToApply =
-        selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-  
+      let classToApply = 'incorrect';
+        if (selectedAnswer == currentQuestion.answer) {
+            classToApply = 'correct';
+    }
+
       // Add 10 points to correct answer
       if (classToApply === "correct") {
         incrementScore(SCORE_POINTS);
@@ -233,6 +237,7 @@ choices.forEach(choice => {
     selectedChoice.parentElement.classList.add(classToApply);
 
     // Postpone answer to display color
+    // Remove the color befor next question
     setTimeout(() => {
         selectedChoice.parentElement.classList.remove(classToApply);
         displayQuestion();

@@ -56,13 +56,13 @@ h1, h2, h3 {
     border-radius: 8px;
 }
 .choice-container:hover {
-    background-color: wheat;
+    background-color : wheat;
 }
 .correct {
-    background-color: green;
+    background-color: green in !important;
 }
 .incorrect {
-    background-color: red;
+    background-color: red !important;
 }
 .choice-prefix {
     width: 10%;
@@ -80,9 +80,6 @@ h1, h2, h3 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-.choice-text:hover {
-    background-color: wheat;
 }
 #count-container {
     display: flex;
@@ -106,7 +103,7 @@ h1, h2, h3 {
     text-align: center;
 }
 /* End page */
-#final-score {
+#end-page {
     color: oldlace;
     text-align: center;
 }
