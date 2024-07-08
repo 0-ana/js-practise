@@ -193,17 +193,19 @@ displayQuestion = () => {
     }
     // Question counter
     questionCounter++;
-    progress.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
-  
+    if (progress) {
+        progress.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
+    }
     // Display question
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
-    question.innerText = currentQuestion.question;
-  
+    if (question) {
+        question.innerText = currentQuestion.question;
+    }
     // Display choices
     choices.forEach(choice => {
       const number = choice.dataset["number"];
-      choice.innerText = currentQuestion["choice" + number];
+      choice.innerText = currentQuestion["option" + number];
     });
   
     // Remove question from all questons array
