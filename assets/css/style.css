@@ -25,17 +25,6 @@ h1, h2, h3 {
     text-align: center;
 }
 
-#name {
-    text-align: center;
-}
-
-#username {
-    margin-top: 5px;  
-    height: 30px;  
-    width: 200px;
-    background-color: oldlace;
-}
-
 .play {
     margin-top: 30px;
     text-align: center;

@@ -190,10 +190,12 @@ startGame = () => {
 displayQuestion = () => {
     // If there are no more questions
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-      //go to the end page
-      return window.location.assign("end.html");
+        // Store score to local storage
+        localStorage.setItem("score", score);
+        //go to the end page
+        return window.location.assign("end.html");
     }
-    // Display to user on witch
+    // Display the user which question is currently
     questionCounter++;
     if (progress) {
         progress.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
@@ -210,15 +212,17 @@ displayQuestion = () => {
       choice.innerText = currentQuestion["option" + number];
     });
   
-    // Remove question from all questons array
+    // Remove used question from all questons array
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
   };
 
+// Event listener for answers
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
       if (!acceptingAnswers) return;
   
+      // Get selected choice number
       acceptingAnswers = false;
       const selectedChoice = e.target;
       const selectedAnswer = selectedChoice.dataset["number"];
@@ -229,16 +233,18 @@ choices.forEach(choice => {
             classToApply = 'correct';
     }
 
-      // Add 10 points to correct answer
+      // Check if the answer is correct
       if (classToApply === "correct") {
         incrementScore(SCORE_POINTS);
      }
   
+    // Apply class to selected answer
     selectedChoice.parentElement.classList.add(classToApply);
 
     // Postpone answer to display color
     // Remove the color befor next question
     setTimeout(() => {
+        // Remove class from selected choice
         selectedChoice.parentElement.classList.remove(classToApply);
         displayQuestion();
     }, 1000);
@@ -251,4 +257,16 @@ choices.forEach(choice => {
     scoreText.innerText = score;
   };
   
+  // Function to display score to the user
+  displayScore = () => {
+    // Get score from local storage
+    const finalScore  = parseInt(localStorage.getItem("score"));
+    // Get element where message will be displayed
+    const message = document.getElementById("final-score"); 
+    // Set message
+    if (message) {
+        message.innerText = finalScore
+    }
+  }
+
   startGame();
