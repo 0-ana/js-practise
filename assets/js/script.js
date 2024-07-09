@@ -203,8 +203,7 @@ function startGame() {
     
     // Display the first question to the player
     displayQuestion();
-};
-
+}
 
 /**
  * Displays the next question to the player.
@@ -249,59 +248,70 @@ function displayQuestion() {
 
     // Set acceptingAnswers to true to allow the player to answer
     acceptingAnswers = true;
-};
+}
 
-
-// Event listener for answers
+// Add a click event listener to each choice element.
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
-      if (!acceptingAnswers) return;
-  
-      // Get selected choice number
-      acceptingAnswers = false;
-      const selectedChoice = e.target;
-      const selectedAnswer = selectedChoice.dataset.number;
-  
-      // Giv class to answer to style it
-      let classToApply = 'incorrect';
+        // If answers are not being accepted, do nothing
+        if (!acceptingAnswers) return;
+
+        // Stop accepting answers until the next question is displayed
+        acceptingAnswers = false;
+        
+        // Get the selected choice element
+        const selectedChoice = e.target;
+        // Get the data number of the selected choice
+        const selectedAnswer = selectedChoice.dataset.number;
+
+        // Determine if the selected answer is correct or incorrect
+        let classToApply = 'incorrect';
         if (selectedAnswer == currentQuestion.answer) {
             classToApply = 'correct';
-    }
+        }
 
-      // Check if the answer is correct
-      if (classToApply === "correct") {
-        incrementScore(SCORE_POINTS);
-     }
-  
-    // Apply class to selected answer
-    selectedChoice.parentElement.classList.add(classToApply);
+        // Increment the score if the selected answer is correct
+        if (classToApply === "correct") {
+            incrementScore(SCORE_POINTS);
+        }
 
-    // Postpone answer to display color
-    // Remove the color before next question
-    setTimeout(() => {
-        // Remove class from selected choice
-        selectedChoice.parentElement.classList.remove(classToApply);
-        displayQuestion();
-    }, 1000);
+        // Add the appropriate class (correct or incorrect) to the selected choice's parent element
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        // Remove the class and display the next question after a short delay
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            displayQuestion();
+        }, 1000);
     });
 });
 
-  // Function to display points
+/**
+ * Increments the player's score by a given number and updates the displayed score.
+ */
 function incrementScore(num) {
+    // Add the specified number of points to the score
     score += num;
+    
+    // Update the displayed score
     scoreText.innerText = score;
-  };
+}
   
-  // Function to display score to the user
-  const displayScore = () => {
-    // Get score from local storage
-    const finalScore  = parseInt(sessionStorage.getItem("finalScore"));
+/**
+ * Retrieves the final score from session storage and displays it on the end screen.
+ */
+function displayScore() {
+    // Get the final score from session storage and parse it as an integer
+    const finalScore = parseInt(sessionStorage.getItem("finalScore"));
 
-    // Get element where message will be displayed
-    const message = document.getElementById("final-score"); 
-    // Set message
+    // Get the element where the final score will be displayed
+    const message = document.getElementById("final-score");
+
+    // Update the text of the element with the final score if the element exists
     if (message) {
         message.innerText = `${finalScore}/200`;
     }
-  };
-  startGame();
+}
+
+// Start the game when the script loads
+startGame();
