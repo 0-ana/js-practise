@@ -44,6 +44,12 @@ This is a simple quiz game implemented with HTML, CSS and JavaScript. The game d
 
 ![Responsiveness](docs/project-images/end-page-html.png)
 
+## Features Left to Implement
+
+- include the username in HTML to make the end page more personal using Javascript
+- make an highscore list on end page using Javascript 
+- when answer is incorrect, color correct answer green so user knows what answer is correct
+
 ## Technologies
 
 - HTML
@@ -133,9 +139,7 @@ Balsamiq Wireframes were used as the initial idea for design of the website
   ![Responsiveness](docs/project-images/incorrect-answer.png)
 
   ![Responsiveness](docs/project-images/question-counter.png)
-
   ![Responsiveness](docs/project-images/score-counter.png)
-
   ![Responsiveness](docs/project-images/quit-quiz-link.png)
 
   - end page:
@@ -144,3 +148,13 @@ Balsamiq Wireframes were used as the initial idea for design of the website
 
   ![Responsiveness](docs/project-images/score-display.png)
   ![Responsiveness](docs/project-images/go-home-link.png)
+
+  ## Deployment
+
+- The site was deployed to GitHub pages. The steps to deploy are as follows:
+  - In the GitHub repository, navigate to the Settings tab
+  - From the menu on left select 'Pages'
+  - From the source section drop-down menu, select the Branch: main
+  - A live link will be displayed in a green banner when published successfully.
+The live link can be found here - https://0-ana.github.io/quiz/
+
