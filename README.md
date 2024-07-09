@@ -43,3 +43,24 @@ This is a simple quiz game implemented with HTML, CSS and JavaScript. The game d
 ![Responsiveness](docs/project-images/favicon-end.png)
 
 ![Responsiveness](docs/project-images/end-page-html.png)
+
+## Technologies
+
+* HTML
+  * The structure of the Website was developed using HTML as the main language.
+* CSS
+  * The Website was styled using custom CSS in a external file.
+* JS
+  * The user interaction on the site was made using custom JS in a external file.
+* Gitpod
+  * The website was developed using Gitpod.
+  * Gitpod was used to commit and push code to GitHub.
+* GitHub
+  * Source code is hosted on GitHub
+  * Webpage is deployed using from Github
+* Favicon
+  * Favicon files were created at https://favicon.io/favicon-converter/ 
+* Google Fonts
+  * Text was styled using fonts from https://fonts.google.com/
+* Balsamiq Wireframes
+  * wireframes were created using balsamiq from https://balsamiq.com/wireframes/desktop/#
