@@ -105,7 +105,7 @@ Balsamiq Wireframes were used as the initial idea for design of the website
   ![Responsiveness](docs/validation-images/lighthouse-index-html.png)
 
   ![Responsiveness](docs/validation-images/lighthouse-game-html.png)
-  
+
   ![Responsiveness](docs/validation-images/lighthouse-end-html.png)
 
   - accessibility https://wave.webaim.org/
@@ -114,4 +114,33 @@ Balsamiq Wireframes were used as the initial idea for design of the website
   ![Responsiveness](docs/validation-images/wave-game-html.png)
   ![Responsiveness](docs/validation-images/wave-end-html.png)
 
+## Functional Testing
 
+- all links and features works as they should:
+  - home page:
+
+    ![Responsiveness](docs/project-images/start-game-link.png)
+
+  - game page:
+    - hover effect over chosen answer before clicking
+    - green/red color for Correct/incorrect answer
+    - question counter
+    - score counter
+    - link to quit quiz
+
+  ![Responsiveness](docs/project-images/hover-effect.png)
+  ![Responsiveness](docs/project-images/correct-answer.png)
+  ![Responsiveness](docs/project-images/incorrect-answer.png)
+
+  ![Responsiveness](docs/project-images/question-counter.png)
+
+  ![Responsiveness](docs/project-images/score-counter.png)
+
+  ![Responsiveness](docs/project-images/quit-quiz-link.png)
+
+  - end page:
+    - final score display
+    - link to go to home page
+
+  ![Responsiveness](docs/project-images/score-display.png)
+  ![Responsiveness](docs/project-images/go-home-link.png)
