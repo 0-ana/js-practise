@@ -273,7 +273,7 @@ choices.forEach(choice => {
     const message = document.getElementById("final-score"); 
     // Set message
     if (message) {
-        message.innerText = finalScore
+        message.innerText = `${finalScore}/200`
     }
   }
   startGame();
