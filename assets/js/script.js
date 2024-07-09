@@ -6,7 +6,8 @@ const scoreText = document.getElementById("score");
 
 // Check when end.html is loaded and display score
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.pathname === "end.html") {
+    const path = window.location.pathname.split('/').pop();
+    if (path === "end.html") {
         displayScore();
     }
 });
@@ -187,14 +188,14 @@ const MAX_QUESTIONS = 20;
 
 // Function to start game
 // Score and question counter are reset to 0
-const startGame = () => {
+function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
     displayQuestion();
 };
 // Function to display questions and answers
-const displayQuestion = () => {
+function displayQuestion() {
     // If there are no more questions
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         // Store score to local storage for current game only
@@ -259,7 +260,7 @@ choices.forEach(choice => {
 });
 
   // Function to display points
-  const incrementScore = num => {
+function incrementScore(num) {
     score += num;
     scoreText.innerText = score;
   };
