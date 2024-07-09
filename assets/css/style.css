@@ -6,24 +6,19 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 /* Body */
 body {
     background-color: black;
     color: oldlace;
     font-family: 'Playwrite Deutschland Grundschrift', sans-serif;
 }
-
 /* Home Page */
-
 #main-h1 {
     margin: 40px 0;
 }
-
 h1, h2, h3 {
     text-align: center;
 }
-
 #rules {
     background-color:  oldlace;
     margin: 5px 5px;
@@ -31,28 +26,22 @@ h1, h2, h3 {
     padding-bottom: 2px;
 
 }
-
 #rules p {
     color: black;
     text-align: center;
     margin: 10px 0;
 }
-
 .play {
     margin-top: 30px;
     text-align: center;
 }
-
 .btn {
     color: oldlace;
 }
-
 /* Game page */
-
 #question {
     margin: 30px 0;
 }
-
 .choice-container {
     background-color: oldlace;
     color: black;
@@ -61,9 +50,6 @@ h1, h2, h3 {
     border: 1px solid black;
     border-radius: 8px;
     height: 50px;
-}
-.choice-container:hover {
-    background-color : wheat;
 }
 .correct {
     background-color: green !important;
@@ -116,30 +102,26 @@ h1, h2, h3 {
 #end-page h1, #end-page h3, #end-page div, #end-page a {
     margin: 40px 0;
 }
-
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px){
  
     #main-h1 {
         margin: 100px 0;
     }
-
     h1, h2{
         margin-top: 200px; 
     }
-
     #rules, #game{
         margin: 50px 100px;
     }
-
     .play{
         margin-top: 100px;
     }
     /* Game page */
-    #game {
-        width: 700px;
-    }
     .question-number {
         width: 80px;
+    }
+    .choice-container:hover {
+        background-color : wheat;
     }
 }

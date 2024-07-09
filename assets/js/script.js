@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.location.pathname === "/end.html") {
         displayScore();
     }
-})
+});
 
 // Variables
-let currentQuestion = {}
+let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let questionCounter= 0;
@@ -187,14 +187,14 @@ const MAX_QUESTIONS = 20;
 
 // Function to start game
 // Score and question counter are reset to 0
-startGame = () => {
+const startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
     displayQuestion();
 };
 // Function to display questions and answers
-displayQuestion = () => {
+const displayQuestion = () => {
     // If there are no more questions
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         // Store score to local storage for current game only
@@ -215,7 +215,7 @@ displayQuestion = () => {
     }
     // Display choices
     choices.forEach(choice => {
-      const number = choice.dataset["number"];
+      const number = choice.dataset.number;
       choice.innerText = currentQuestion["option" + number];
     });
   
@@ -232,7 +232,7 @@ choices.forEach(choice => {
       // Get selected choice number
       acceptingAnswers = false;
       const selectedChoice = e.target;
-      const selectedAnswer = selectedChoice.dataset["number"];
+      const selectedAnswer = selectedChoice.dataset.number;
   
       // Giv class to answer to style it
       let classToApply = 'incorrect';
@@ -259,13 +259,13 @@ choices.forEach(choice => {
 });
 
   // Function to display points
-  incrementScore = num => {
+  const incrementScore = num => {
     score += num;
     scoreText.innerText = score;
   };
   
   // Function to display score to the user
-  displayScore = () => {
+  const displayScore = () => {
     // Get score from local storage
     const finalScore  = parseInt(sessionStorage.getItem("finalScore"));
 
@@ -273,7 +273,7 @@ choices.forEach(choice => {
     const message = document.getElementById("final-score"); 
     // Set message
     if (message) {
-        message.innerText = `${finalScore}/200`
+        message.innerText = `${finalScore}/200`;
     }
-  }
+  };
   startGame();
