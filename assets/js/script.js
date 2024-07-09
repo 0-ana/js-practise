@@ -4,6 +4,13 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progress = document.getElementById("count-number");
 const scoreText = document.getElementById("score");
 
+// Check when end.html is loaded and display score
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname === "/end.html") {
+        displayScore();
+    }
+})
+
 // Variables
 let currentQuestion = {}
 let acceptingAnswers = true;
@@ -178,7 +185,7 @@ let questions = [
 const SCORE_POINTS = 10;
 const MAX_QUESTIONS = 20;
 
-// Funcion to start game
+// Function to start game
 // Score and question counter are reset to 0
 startGame = () => {
     questionCounter = 0;
@@ -193,7 +200,7 @@ displayQuestion = () => {
         // Store score to local storage for current game only
         sessionStorage.setItem("finalScore", score);
         //go to the end page
-        return window.location.assign("end.html");
+        return window.location.assign("/end.html");
     }
     // Display the user which question is currently
     questionCounter++;
@@ -212,7 +219,7 @@ displayQuestion = () => {
       choice.innerText = currentQuestion["option" + number];
     });
   
-    // Remove used question from all questons array
+    // Remove used question from all questions array
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
   };
@@ -227,7 +234,7 @@ choices.forEach(choice => {
       const selectedChoice = e.target;
       const selectedAnswer = selectedChoice.dataset["number"];
   
-      // Applay class to answer to style it
+      // Giv class to answer to style it
       let classToApply = 'incorrect';
         if (selectedAnswer == currentQuestion.answer) {
             classToApply = 'correct';
@@ -242,7 +249,7 @@ choices.forEach(choice => {
     selectedChoice.parentElement.classList.add(classToApply);
 
     // Postpone answer to display color
-    // Remove the color befor next question
+    // Remove the color before next question
     setTimeout(() => {
         // Remove class from selected choice
         selectedChoice.parentElement.classList.remove(classToApply);
