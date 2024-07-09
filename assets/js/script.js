@@ -205,36 +205,52 @@ function startGame() {
     displayQuestion();
 };
 
-// Function to display questions and answers
+
+/**
+ * Displays the next question to the player.
+ * If there are no more questions or the maximum number of questions has been reached,
+ * saves the final score and redirects to the end page.
+ */
 function displayQuestion() {
-    // If there are no more questions
+    // Check if there are no available questions or if the maximum number of questions has been reached
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        // Store score to local storage for current game only
+        // Save the final score in the session storage
         sessionStorage.setItem("finalScore", score);
-        //go to the end page
+
+        // Redirect to the end page
         return window.location.assign("end.html");
     }
-    // Display the user which question is currently
+
+    // Increment the question counter
     questionCounter++;
+    
+    // Update the progress text if the progress element exists
     if (progress) {
         progress.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
     }
-    // Display question
+
+    // Select a random question from the available questions
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
+    
+    // Display the current question text if the question element exists
     if (question) {
         question.innerText = currentQuestion.question;
     }
-    // Display choices
+
+    // Display the choices for the current question
     choices.forEach(choice => {
-      const number = choice.dataset.number;
-      choice.innerText = currentQuestion["option" + number];
+        const number = choice.dataset.number;
+        choice.innerText = currentQuestion["option" + number];
     });
-  
-    // Remove used question from all questions array
+
+    // Remove the displayed question from the available questions
     availableQuestions.splice(questionIndex, 1);
+
+    // Set acceptingAnswers to true to allow the player to answer
     acceptingAnswers = true;
-  };
+};
+
 
 // Event listener for answers
 choices.forEach(choice => {
