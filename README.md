@@ -17,3 +17,17 @@ This is a simple quiz game implemented with HTML, CSS and JavaScript. The game d
 ![Responsiveness](docs/project-images/favicon-index.png)
 
 ![Responsiveness](docs/project-images/index-html.png)
+
+### Game Page
+
+- contains:
+  - favicon & title
+  - question
+  - four possible answers 
+  - question counter
+  - score counter
+  - link to quit quiz
+
+![Responsiveness](docs/project-images/favicon-game.png)
+
+![Responsiveness](docs/project-images/game-html.png)
