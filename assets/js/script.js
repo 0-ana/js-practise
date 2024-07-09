@@ -190,8 +190,8 @@ startGame = () => {
 displayQuestion = () => {
     // If there are no more questions
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        // Store score to local storage
-        localStorage.setItem("score", score);
+        // Store score to local storage for current game only
+        sessionStorage.setItem("finalScore", score);
         //go to the end page
         return window.location.assign("end.html");
     }
@@ -260,7 +260,8 @@ choices.forEach(choice => {
   // Function to display score to the user
   displayScore = () => {
     // Get score from local storage
-    const finalScore  = parseInt(localStorage.getItem("score"));
+    const finalScore  = parseInt(sessionStorage.getItem("finalScore"));
+
     // Get element where message will be displayed
     const message = document.getElementById("final-score"); 
     // Set message
@@ -268,5 +269,4 @@ choices.forEach(choice => {
         message.innerText = finalScore
     }
   }
-
   startGame();
