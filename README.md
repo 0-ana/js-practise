@@ -149,7 +149,7 @@ Balsamiq Wireframes were used as the initial idea for design of the website
   ![Responsiveness](docs/project-images/score-display.png)
   ![Responsiveness](docs/project-images/go-home-link.png)
 
-  ## Deployment
+## Deployment
 
 - The site was deployed to GitHub pages. The steps to deploy are as follows:
   - In the GitHub repository, navigate to the Settings tab
@@ -157,6 +157,16 @@ Balsamiq Wireframes were used as the initial idea for design of the website
   - From the source section drop-down menu, select the Branch: main
   - A live link will be displayed in a green banner when published successfully.
 The live link can be found here - https://0-ana.github.io/quiz/
+
+## Deployment bug
+
+- during deployment it was discovered that the end page is not loading
+
+  ![Responsiveness](docs/validation-images/end-page-error.png)
+
+- problem was solved by changing window location pathname
+
+  ![Responsiveness](docs/validation-images/bug.png)
 
 ## Credits
 
