@@ -31,3 +31,15 @@ This is a simple quiz game implemented with HTML, CSS and JavaScript. The game d
 ![Responsiveness](docs/project-images/favicon-game.png)
 
 ![Responsiveness](docs/project-images/game-html.png)
+
+### End Page
+
+- contains:
+  - favicon & title
+  - h1 & h3 title
+  - final score display 
+  - link to home page
+
+![Responsiveness](docs/project-images/favicon-end.png)
+
+![Responsiveness](docs/project-images/end-page-html.png)
