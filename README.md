@@ -81,3 +81,37 @@ Balsamiq Wireframes were used as the initial idea for design of the website
 
 ![Responsiveness](docs/project-images/wireframes-end-html.png)
 
+## Testing
+
+- All pages were tested to ensure responsiveness on screen sizes from 280px and upwards
+- the website works as planned on all screen sizes
+- testing on all three pages was performed using:
+  - HTML validator https://validator.w3.org/
+
+  ![Responsiveness](docs/validation-images/index-html-validator.png)
+  ![Responsiveness](docs/validation-images/game-html-validator.png)
+  ![Responsiveness](docs/validation-images/end-html-validator.png)
+
+  - CSS validator https://jigsaw.w3.org/css-validator/
+
+  ![Responsiveness](docs/validation-images/css-validator.png)
+
+  - JS validator https://jshint.com/
+
+  ![Responsiveness](docs/validation-images/js-validator.png)
+
+  - lighthouse in dev tools
+
+  ![Responsiveness](docs/validation-images/lighthouse-index-html.png)
+
+  ![Responsiveness](docs/validation-images/lighthouse-game-html.png)
+  
+  ![Responsiveness](docs/validation-images/lighthouse-end-html.png)
+
+  - accessibility https://wave.webaim.org/
+
+  ![Responsiveness](docs/validation-images/wave-index-html.png)
+  ![Responsiveness](docs/validation-images/wave-game-html.png)
+  ![Responsiveness](docs/validation-images/wave-end-html.png)
+
+
