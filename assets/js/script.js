@@ -186,14 +186,25 @@ let questions = [
 const SCORE_POINTS = 10;
 const MAX_QUESTIONS = 20;
 
-// Function to start game
-// Score and question counter are reset to 0
+/**
+ * Initializes the game by resetting the question counter and score,
+ * and populating the available questions from the predefined list.
+ * Then, displays the first question.
+ */
 function startGame() {
+    // Reset the question counter to the beginning
     questionCounter = 0;
+    
+    // Reset the player's score to zero
     score = 0;
+    
+    // Create a copy of the questions array to track available questions
     availableQuestions = [...questions];
+    
+    // Display the first question to the player
     displayQuestion();
 };
+
 // Function to display questions and answers
 function displayQuestion() {
     // If there are no more questions
