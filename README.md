@@ -158,3 +158,20 @@ Balsamiq Wireframes were used as the initial idea for design of the website
   - A live link will be displayed in a green banner when published successfully.
 The live link can be found here - https://0-ana.github.io/quiz/
 
+## Credits
+
+- Questions
+  - questions are taken from:
+    - https://www.today.com/popculture/pop-culture-trivia-rcna141671
+    - https://www.teenvogue.com/story/131-best-trivia-questions-and-answers-to-stump-your-friends-with
+  
+- JS Code
+  - code was inspired and taken from: 
+    - Love Maths Project
+    - https://www.w3schools.com/
+    - https://www.youtube.com/watch?v=rFWbAj40JrQ&list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF
+    - https://www.youtube.com/watch?v=PBcqGxrr9g8&t=1685s
+    - https://www.youtube.com/watch?v=f4fB9Xg2JEY&t=2870s
+    - https://www.youtube.com/watch?v=riDzcEQbX6k&t=1266s
+    - https://www.youtube.com/watch?v=PBcqGxrr9g8&t=4s
+
