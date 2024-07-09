@@ -6,7 +6,7 @@ const scoreText = document.getElementById("score");
 
 // Check when end.html is loaded and display score
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.pathname === "/end.html") {
+    if (window.location.pathname === "end.html") {
         displayScore();
     }
 });
@@ -200,7 +200,7 @@ const displayQuestion = () => {
         // Store score to local storage for current game only
         sessionStorage.setItem("finalScore", score);
         //go to the end page
-        return window.location.assign("/end.html");
+        return window.location.assign("end.html");
     }
     // Display the user which question is currently
     questionCounter++;
